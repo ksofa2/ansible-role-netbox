@@ -3,3 +3,8 @@
   service:
     name: "{{ apache2_service }}"
     state: restarted
+
+- name: restart netbox app
+  supervisorctl:
+    name: netbox
+    state: restarted
