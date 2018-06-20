@@ -12,6 +12,11 @@
     dest: "{{ netbox_install_directory }}"
   register: netbox_downloaded
 
+- name: set management script permissions
+  file:
+    path: "{{ netbox_install_directory }}/netbox/manage.py"
+    mode: 0700
+
 - name: install virtualenv using pip
   pip:
     name: virtualenv
